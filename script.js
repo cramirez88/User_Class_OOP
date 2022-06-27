@@ -6,10 +6,12 @@ class User {
   }
   makeDeposit(amount){
     this.accountBalance += amount
+    return this
   }
 
   makeWithdrawal(amount){
     this.accountBalance -= amount
+    return this
   }
 
   displayBalance(){
@@ -24,18 +26,9 @@ class User {
 const christian = new User('Christian', 'christian_ramirez@javascript.com')
 const daniela = new User('Daniela', 'daniela_ramirez@javascript.com')
 const ana = new User('Ana', 'ana_reyes@javascript.com')
-christian.makeDeposit(1000)
-christian.makeDeposit(1000)
-christian.makeDeposit(1000)
-christian.makeWithdrawal(50)
-daniela.makeDeposit(200)
-daniela.makeDeposit(200)
-daniela.makeWithdrawal(100)
-daniela.makeWithdrawal(10)
-ana.makeDeposit(500)
-ana.makeWithdrawal(100)
-ana.makeWithdrawal(100)
-ana.makeWithdrawal(100)
+christian.makeDeposit(1000).makeDeposit(1000).makeDeposit(1000).makeWithdrawal(500)
+daniela.makeDeposit(200).makeDeposit(200).makeWithdrawal(100).makeWithdrawal(10)
+ana.makeDeposit(500).makeWithdrawal(10).makeWithdrawal(10).makeWithdrawal(10)
 christian.transferMoney(100, daniela)
 console.log(christian.displayBalance())
 console.log(daniela.displayBalance())
