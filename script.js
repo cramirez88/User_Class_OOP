@@ -15,6 +15,10 @@ class User {
   displayBalance(){
     console.log(this.name +' has ' + this.accountBalance + ' dollars in the bank')
   }
+  transferMoney(amount, account){
+    this.accountBalance -= amount
+    account.accountBalance += amount
+  }
 }
 
 const christian = new User('Christian', 'christian_ramirez@javascript.com')
@@ -32,6 +36,7 @@ ana.makeDeposit(500)
 ana.makeWithdrawal(100)
 ana.makeWithdrawal(100)
 ana.makeWithdrawal(100)
+christian.transferMoney(100, daniela)
 console.log(christian.displayBalance())
 console.log(daniela.displayBalance())
 console.log(ana.displayBalance())
